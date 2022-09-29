@@ -1,12 +1,14 @@
-import { lazy, Suspense, useContext, useState } from "react"
+import { Suspense } from "react"
 import { Link } from "react-router-dom"
 import { Route, Routes } from "react-router-dom"
-import { classNames } from "../helpers/classNames"
-import { Theme, ThemeContext } from "../theme/ThemeContext"
-import { useTheme } from "../theme/useTheme"
+import { useTheme } from "app/providers/ThemeProvider"
+import './styles/index.scss'
+import { AboutPage } from "pages/AboutPage"
+import { MainPage } from "pages/MainPage"
+import { classNames } from "shared/lib/classNames.ts/classNames"
 
-const AboutPageAsync = lazy(() => import('./AboutPage/AboutPage'))
-const MainPageAsync = lazy(() => import('./MainPage/MainPage'))
+
+
 
 
 export const App = () => {
@@ -28,8 +30,8 @@ export const App = () => {
             </Link>
             <Suspense fallback={<div>LOADING</div>}>
                 <Routes>
-                    <Route path={'/'} element={<MainPageAsync />} />
-                    <Route path={'/about'} element={<AboutPageAsync />} />
+                    <Route path={'/'} element={<MainPage />} />
+                    <Route path={'/about'} element={<AboutPage />} />
                 </Routes>
             </Suspense>
         </div>
