@@ -7,7 +7,7 @@ export enum ThemeButton {
 }
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className: string;
+    className?: string;
     theme?: ThemeButton
 }
 
