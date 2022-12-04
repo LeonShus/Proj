@@ -4,7 +4,8 @@ import { classNames } from "shared/lib/classNames.ts/classNames"
 import { AppRouter } from "app/providers/router"
 import { Navbar } from "widgets/Navbar"
 import { Sidebar } from "widgets/Sidebar"
-import { Suspense } from "react"
+import { Suspense, useEffect } from "react"
+import { Loader } from "widgets/Loader"
 
 
 
@@ -15,7 +16,7 @@ export const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback=''>
+            <Suspense fallback={<Loader />}>
                 <Navbar />
 
                 <div className="content-page">
