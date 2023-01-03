@@ -8,7 +8,10 @@
     "build:dev": "webpack --env mode=development",
     "test": "jest",
     "sb": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook"
+    "build-storybook": "build-storybook -c ./config/storybook",
+    "visual:report": "npm-run-all visual:report:*",
+    "visual:report:json": "node scripts/generate-visual-json-report.js",
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html"
   },
   "license": "ISC",
   "devDependencies": {
